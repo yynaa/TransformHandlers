@@ -1,14 +1,17 @@
 {
   "schemaVersion": 1,
   "id": "transformhandlers",
-  "version": "2.0.0-dev+1.19",
+  "version": "2.0.0-alpha.1+1.19",
 
   "name": "Transform Handlers",
-  "description": "Allows hands repositioning",
+  "description": "Allows first person arm & item repositioning",
   "authors": [
     "yyna"
   ],
   "contact": {
+    "homepage": "https://modrinth.com/mod/transformhandler",
+    "issues": "https://github.com/yynaa/TransformHandlers/issues",
+    "sources": "https://github.com/yynaa/TransformHandlers"
   },
 
   "license": "CC0-1.0",

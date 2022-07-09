@@ -33,9 +33,9 @@ public class HandsMixin {
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;push()V", shift = At.Shift.AFTER), method = "renderFirstPersonItem")
 	private void renderFirstPersonItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo info){
-		if (item.isEmpty() && hand == Hand.MAIN_HAND && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsMain.enable){
+		if (!item.isEmpty() && hand == Hand.MAIN_HAND && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsMain.enable){
 			matrices.translate((double)SettingsScreen.settings.ItemsMain.x/10D, (double)SettingsScreen.settings.ItemsMain.y/10D, (double)SettingsScreen.settings.ItemsMain.z/10D);
-		}else if (item.isEmpty() && hand == Hand.OFF_HAND  && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsOff.enable) {
+		}else if (!item.isEmpty() && hand == Hand.OFF_HAND  && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsOff.enable) {
 			matrices.translate((double)SettingsScreen.settings.ItemsOff.x/10D, (double)SettingsScreen.settings.ItemsOff.y/10D, (double)SettingsScreen.settings.ItemsOff.z/10D);
 		}
 	}

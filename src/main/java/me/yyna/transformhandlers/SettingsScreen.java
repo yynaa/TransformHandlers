@@ -36,7 +36,8 @@ public class SettingsScreen {
             throw new RuntimeException(e);
         }
 
-        if (stringLoad != null){
+        if (stringLoad != null) {
+            Entrypoint.LOGGER.info(stringLoad);
             Gson gson = new Gson();
             settings = gson.fromJson(stringLoad, Settings.class);
         }
@@ -95,17 +96,17 @@ public class SettingsScreen {
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.arm.right.x"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.arm.right.x"), settings.ArmRight.x, -30L, 30L)
                 .setSaveConsumer(n -> settings.ArmRight.x = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.arm.right.y"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.arm.right.y"), settings.ArmRight.y, -30L, 30L)
                 .setSaveConsumer(n -> settings.ArmRight.y = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.arm.right.z"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.arm.right.z"), settings.ArmRight.z, -30L, 30L)
                 .setSaveConsumer(n -> settings.ArmRight.z = n)
                 .build()
         );
@@ -119,17 +120,17 @@ public class SettingsScreen {
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.arm.left.x"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.arm.left.x"), settings.ArmLeft.x, -30L, 30L)
                 .setSaveConsumer(n -> settings.ArmLeft.x = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.arm.left.y"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.arm.left.y"), settings.ArmLeft.y, -30L, 30L)
                 .setSaveConsumer(n -> settings.ArmLeft.y = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.arm.left.z"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.arm.left.z"), settings.ArmLeft.z, -30L, 30L)
                 .setSaveConsumer(n -> settings.ArmLeft.z = n)
                 .build()
         );
@@ -143,17 +144,17 @@ public class SettingsScreen {
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.item.main.x"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.item.main.x"), settings.ItemsMain.x, -30L, 30L)
                 .setSaveConsumer(n -> settings.ItemsMain.x = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.item.main.y"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.item.main.y"), settings.ItemsMain.y, -30L, 30L)
                 .setSaveConsumer(n -> settings.ItemsMain.y = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.item.main.z"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.item.main.z"), settings.ItemsMain.z, -30L, 30L)
                 .setSaveConsumer(n -> settings.ItemsMain.z = n)
                 .build()
         );
@@ -167,17 +168,17 @@ public class SettingsScreen {
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.item.off.x"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.item.off.x"), settings.ItemsOff.x, -30L, 30L)
                 .setSaveConsumer(n -> settings.ItemsOff.x = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.item.off.y"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.item.off.y"), settings.ItemsOff.y, -30L, 30L)
                 .setSaveConsumer(n -> settings.ItemsOff.y = n)
                 .build()
         );
         a.add(entryBuilder
-                .startLongSlider(Text.translatable("thsettings.globals.item.off.z"), 0, -30L, 30L)
+                .startLongSlider(Text.translatable("thsettings.globals.item.off.z"), settings.ItemsOff.z, -30L, 30L)
                 .setSaveConsumer(n -> settings.ItemsOff.z = n)
                 .build()
         );

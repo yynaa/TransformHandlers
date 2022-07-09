@@ -43,7 +43,8 @@ public class SettingsScreen {
         }
 
         ConfigBuilder builder = ConfigBuilder.create()
-                .setTitle(Text.translatable("settings"))
+                .setTitle(Text.translatable("thsettings"))
+                .transparentBackground()
                 .setSavingRunnable(() -> {
                     Gson gson = new Gson();
                     String stringSave = gson.toJson(settings);
@@ -76,10 +77,14 @@ public class SettingsScreen {
                 .build()
         );
 
-        globals.addEntry(genArmLeft(entryBuilder).build());
         globals.addEntry(genArmRight(entryBuilder).build());
+        globals.addEntry(genArmLeft(entryBuilder).build());
         globals.addEntry(genItemMain(entryBuilder).build());
         globals.addEntry(genItemOff(entryBuilder).build());
+
+        ConfigCategory specials = builder.getOrCreateCategory(Text.translatable("thsettings.specials"));
+
+        specials.addEntry(entryBuilder.startTextDescription(Text.translatable("thsettings.specials.comingsoon")).build());
 
         ConfigCategory overrides = builder.getOrCreateCategory(Text.translatable("thsettings.overrides"));
 

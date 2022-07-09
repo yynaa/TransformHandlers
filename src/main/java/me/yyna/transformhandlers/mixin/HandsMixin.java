@@ -25,18 +25,18 @@ public class HandsMixin {
 	@Inject(at = @At("HEAD"), method = "renderArmHoldingItem")
 	private void renderArmHoldingItem(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float equipProgress, float swingProgress, Arm arm, CallbackInfo ci){
 		if (arm == Arm.RIGHT && SettingsScreen.settings.enable && SettingsScreen.settings.ArmRight.enable){
-			matrices.translate(SettingsScreen.settings.ArmRight.x/10, SettingsScreen.settings.ArmRight.y/10, SettingsScreen.settings.ArmRight.z/10);
+			matrices.translate((double)SettingsScreen.settings.ArmRight.x/10D, (double)SettingsScreen.settings.ArmRight.y/10D, (double)SettingsScreen.settings.ArmRight.z/10D);
 		}else if (arm == Arm.LEFT  && SettingsScreen.settings.enable && SettingsScreen.settings.ArmLeft.enable) {
-			matrices.translate(SettingsScreen.settings.ArmLeft.x/10, SettingsScreen.settings.ArmLeft.y/10, SettingsScreen.settings.ArmLeft.z/10);
+			matrices.translate((double)SettingsScreen.settings.ArmLeft.x/10D, (double)SettingsScreen.settings.ArmLeft.y/10D, (double)SettingsScreen.settings.ArmLeft.z/10D);
 		}
 	}
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;push()V", shift = At.Shift.AFTER), method = "renderFirstPersonItem")
 	private void renderFirstPersonItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo info){
-		if (hand == Hand.MAIN_HAND && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsMain.enable){
-			matrices.translate(SettingsScreen.settings.ItemsMain.x/10, SettingsScreen.settings.ItemsMain.y/10, SettingsScreen.settings.ItemsMain.z/10);
-		}else if (hand == Hand.OFF_HAND  && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsOff.enable) {
-			matrices.translate(SettingsScreen.settings.ItemsOff.x/10, SettingsScreen.settings.ItemsOff.y/10, SettingsScreen.settings.ItemsOff.z/10);
+		if (item.isEmpty() && hand == Hand.MAIN_HAND && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsMain.enable){
+			matrices.translate((double)SettingsScreen.settings.ItemsMain.x/10D, (double)SettingsScreen.settings.ItemsMain.y/10D, (double)SettingsScreen.settings.ItemsMain.z/10D);
+		}else if (item.isEmpty() && hand == Hand.OFF_HAND  && SettingsScreen.settings.enable && SettingsScreen.settings.ItemsOff.enable) {
+			matrices.translate((double)SettingsScreen.settings.ItemsOff.x/10D, (double)SettingsScreen.settings.ItemsOff.y/10D, (double)SettingsScreen.settings.ItemsOff.z/10D);
 		}
 	}
 }

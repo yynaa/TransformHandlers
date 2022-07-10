@@ -6,9 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "HandsMixin",
-    "ClientAccessor",
-    "ERDAccessor"
+    "HandsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

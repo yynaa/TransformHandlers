@@ -1,6 +1,7 @@
 package me.yyna.transformhandlers;
 
 import com.google.gson.Gson;
+import me.yyna.transformhandlers.settingClasses.SettingSpecial;
 import me.yyna.transformhandlers.settingClasses.SettingPosition;
 
 import java.io.BufferedReader;
@@ -39,9 +40,12 @@ public class Settings {
 
         return new Settings();
     }
+
     public boolean enable = true;
     public SettingPosition ArmRight = new SettingPosition();
     public SettingPosition ArmLeft = new SettingPosition();
     public SettingPosition ItemsMain = new SettingPosition();
     public SettingPosition ItemsOff = new SettingPosition();
+    public SettingSpecial ChargedCrossbow = new SettingSpecial();
+    public SettingSpecial FilledMap = new SettingSpecial();
 }

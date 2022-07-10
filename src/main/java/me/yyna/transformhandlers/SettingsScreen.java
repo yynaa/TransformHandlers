@@ -11,36 +11,10 @@ import net.minecraft.text.Text;
 import java.io.*;
 public class SettingsScreen {
     public static Settings settings = new Settings();
-    public static final String pathname = "config/transformHandlersSettings.json";
 
     public static Screen CreateSettingsScreen(){
         //load
-        String stringLoad = null;
-        try {
-            File file = new File(pathname);
-            if (file.exists()){
-                BufferedReader br = new BufferedReader(new FileReader(pathname));
-                StringBuilder sb = new StringBuilder();
-                String line = br.readLine();
-
-                while (line != null) {
-                    sb.append(line);
-                    sb.append(System.lineSeparator());
-                    line = br.readLine();
-                }
-                stringLoad = sb.toString();
-                br.close();
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        if (stringLoad != null) {
-            Entrypoint.LOGGER.info(stringLoad);
-            Gson gson = new Gson();
-            settings = gson.fromJson(stringLoad, Settings.class);
-        }
+        settings = Settings.Load();
 
         ConfigBuilder builder = ConfigBuilder.create()
                 .setTitle(Text.translatable("thsettings"))
@@ -49,7 +23,7 @@ public class SettingsScreen {
                     Gson gson = new Gson();
                     String stringSave = gson.toJson(settings);
 
-                    File file = new File(pathname);
+                    File file = new File(Global.settingsPathname);
                     try {
                         file.createNewFile();
                     } catch (IOException e) {
@@ -57,7 +31,7 @@ public class SettingsScreen {
                     }
 
                     try {
-                        FileWriter fileWriter = new FileWriter(pathname);
+                        FileWriter fileWriter = new FileWriter(Global.settingsPathname);
                         fileWriter.write(stringSave);
                         fileWriter.close();
                     } catch (IOException e) {
